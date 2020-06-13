@@ -61,4 +61,3 @@ class HandlingQueue
     @thread = nil
   end
 end
-

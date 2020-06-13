@@ -23,6 +23,11 @@ Layout/EndOfLine:
 Layout/LineLength:
   Max: 100
 
+# Allow long testing methods
+Metrics/MethodLength:
+  Exclude:
+    - test/test_*.rb
+
 # Follow RubyGuides on this one
 Style/HashSyntax:
   EnforcedStyle: ruby19_no_mixed_keys
