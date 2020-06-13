@@ -10,7 +10,18 @@ Add gem to your Gemfile using
 
 ## Usage
 
-TODO: Write usage instructions here
+Setting up handler:
+
+	handling_queue = HandlingQueue.new(slice: 1, interval: 1) do |a|
+	  # Handle `a` which is array of `HandlingQueue::Request`
+      a.each { |e| e.re = e.obj * 2 } # It is necessar to assign `e.re`
+    end
+
+Adding elements to queue:
+
+    handling_queue.handle(1) # Sleeps until handler called for this number, then => 2
+    handling_queue.handle(2) # => 4
+    handling_queue.handle(5) # => 10
 
 ## Development
 
