@@ -1,9 +1,30 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 
-gem 'rake', '~> 12.0'
-gem 'minitest', '~> 5.0'
+# Specify your gem's dependencies in vk_music.gemspec
+gemspec
 
-gem 'rubocop', '~> 0.85.0'
-gem 'rubocop-performance', require: false
+group :test, :development do
+  # Debugging console
+  gem 'pry'
 
-gem 'pry', '~> 0.13.1'
+  # Another debugging console
+  gem 'byebug'
+
+  # The thing, forcing you to write good code
+  gem 'rubocop', require: false
+  gem 'rubocop-performance', require: false
+
+  # Rake tasks
+  gem 'rake', require: false
+
+  # Testing
+  gem 'rspec', require: false
+
+  # Docs
+  gem 'yard', require: false
+
+  # Test coverage
+  gem 'simplecov', require: false, group: :test
+end

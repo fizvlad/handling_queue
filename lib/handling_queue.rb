@@ -31,7 +31,7 @@ class HandlingQueue
     request = Request.new(obj)
     @mutex.synchronize do
       @requests_queue.push(request)
-      @cv.wait(@mutex) while request.re.nil?
+      @cv.wait(@mutex) until request.re?
       request.re
     end
   end

@@ -7,12 +7,20 @@ class HandlingQueue
     attr_accessor :obj
 
     # @return [void] handled object or +nil+ if not handled yet.
-    attr_accessor :re
+    def re
+      return @re if re?
+    end
+
+    attr_writer :re
+
+    # @return [Boolean] whether handled
+    def re?
+      defined? @re
+    end
 
     # @param obj [void] object to be handled.
     def initialize(obj)
       @obj = obj
-      @re = nil
     end
   end
 end
